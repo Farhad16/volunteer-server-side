@@ -63,7 +63,6 @@ client.connect(err => {
 
 
     app.delete('/deleteRegistered/:id', (req, res) => {
-        console.log(req.params.id);
         registerCollection.deleteOne({
             _id: req.params.id
         })
