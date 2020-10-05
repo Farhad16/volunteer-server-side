@@ -21,12 +21,12 @@ client.connect(err => {
     const eventsCollection = client.db("volunteer").collection("events");
     const registerCollection = client.db("volunteer").collection("registerVolunteer");
 
-    app.post('/addEvents', (req, res) => {
+    app.post('/addEvent', (req, res) => {
         const events = req.body;
-        console.log(events);
+
         eventsCollection.insertOne(events)
             .then(result => {
-                res.send(result.insertedCount)
+                res.send(result.insertedCount > 0)
             })
     })
 
